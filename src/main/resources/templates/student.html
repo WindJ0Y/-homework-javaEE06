@@ -1,0 +1,35 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>学生页</title>
+    <link type="text/css" rel="styleSheet"  href="css/css.css" />
+    <script type="text/javascript" src="js/js.js"></script>
+</head>
+<body>
+
+<div>
+    <a>选择学生：</a>
+    <select id="studentSelect">
+        <option th:each="stu : ${studentList}" th:value="${{stu.sid}}">
+            <div th:text="${{stu.name}}"></div>
+        </option>
+    </select>
+</div>
+
+<div>
+    <a>选择作业：</a>
+    <select id="homeworkSelect">
+        <option th:each = "hw : ${homeworkList}" th:value="${{hw.hid}}">
+            <div th:text = "${{hw.name}}"></div>
+        </option>
+    </select>
+</div>
+
+<div>
+    <a>作业内容：</a>
+    <input id="homeworkContent" type="text"/>
+    <button type="button" onclick="submitHomework();">提交</button>
+</div>
+
+
+</body>
+</html>

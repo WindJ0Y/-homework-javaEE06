@@ -1,0 +1,78 @@
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>教师页</title>
+    <link type="text/css" rel="styleSheet"  href="css/css.css" />
+    <script type="text/javascript" src="js/js.js"></script>
+</head>
+
+<body>
+
+
+<div class = "parent">
+
+    <div class = "child" style="background-color: aqua">
+        <p class = "word">学生</p>
+
+        <div>
+            <a>添加学生</a>
+            <input type="text" id="studentName" />
+            <button type="button" onclick="addStudent();">提交</button>
+        </div>
+
+        <table class = "gridtable">
+            <tr>
+                <td>sid</td>
+                <td>姓名</td>
+            </tr>
+            <tr th:each="elm : ${studentList}">
+                <td th:text="${{elm.sid}}"></td>
+                <td th:text="${{elm.name}}"></td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div class = "child" style="background-color: fuchsia">
+        <p class = "word">作业</p>
+
+        <div>
+            <a>添加作业</a>
+            <input type="text" id="homeworkName"/>
+            <button type="button" onclick="addHomework();">提交</button>
+        </div>
+
+        <table class = "gridtable">
+            <tr>
+                <td>hid</td>
+                <td>名称</td>
+            </tr>
+            <tr th:each="elm : ${homeworkList}">
+                <td th:text="${{elm.hid}}"></td>
+                <td th:text="${{elm.name}}"></td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div class = "child" style="background-color: aqua">
+        <p class = "word">提交</p>
+
+        <table class = "gridtable">
+            <tr>
+                <td>sid</td>
+                <td>hid</td>
+                <td>内容</td>
+            </tr>
+            <tr th:each="elm : ${submitList}">
+                <td th:text="${{elm.sid}}"></td>
+                <td th:text="${{elm.hid}}"></td>
+                <td th:text="${{elm.content}}"></td>
+            </tr>
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>
